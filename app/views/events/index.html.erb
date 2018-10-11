@@ -3,5 +3,16 @@
 <%= link_to 'Create event' %>
 
 <!-- Remove the following image tag and add the markup to create a basic weekly calendar -->
-<%= image_tag 'events_calendar', width: '100%' %>
-
+<div class="calendar">
+	<% (1..7).each{|x| %>
+	<div class="day">
+		<h1><span class="name">Monday</span> <span class="date">21st Mar</span></h1>
+		<div class="day-events-container">
+			<div class="event">
+				Description
+			</div>
+		</div>
+	</div>
+	<% } %>
+	<div style="clear: both"></div>
+</div>
