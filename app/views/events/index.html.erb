@@ -3,16 +3,24 @@
 <%= link_to 'Create event' %>
 
 <!-- Remove the following image tag and add the markup to create a basic weekly calendar -->
-<div class="calendar">
-	<% (1..7).each{|x| %>
+<div id="calendar">
+	
+</div>
+
+<script id="calendar-day" type="text/x-handlebars-template">
 	<div class="day">
-		<h1><span class="name">Monday</span> <span class="date">21st Mar</span></h1>
+		<h1><span class="name">day</span> <span class="date"></span></h1>
 		<div class="day-events-container">
-			<div class="event">
-				Description
-			</div>
 		</div>
 	</div>
-	<% } %>
-	<div style="clear: both"></div>
-</div>
+</script>
+<script id="event" type="text/x-handlebars-template">
+	<div class="event">event</div>
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		let calendar = new Calendar($('#calendar'), $('#calendar-day'), $('#event'));
+		calendar.render();
+	});
+</script>
