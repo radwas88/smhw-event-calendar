@@ -28,11 +28,6 @@ function Calendar(domElement, dayTemplate, eventTemplate) {
 	this.clearContent = function() {
 		domElement.html('');
 	};
-
-	this.createEvent = function(form) {
-		console.log($(form).serialize());
-		return false;
-	};
 	
 	this.generateCalendarDays();
 };

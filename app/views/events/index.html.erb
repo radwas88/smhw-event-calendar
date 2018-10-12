@@ -22,7 +22,8 @@
 <script type="text/javascript">
 	var calendar = null;
 	$(document).ready(function(){
-		calendar = new Calendar($('#calendar'), $('#calendar-day'), $('#event'));
+		calendar = new Calendar($('#calendar'), $('#calendar-day'), $('#event'));		
 		calendar.render();
+		calendarManager = new CalendarManager(calendar, '#event-form');
 	});
 </script>
