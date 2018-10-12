@@ -20,11 +20,19 @@ function Calendar(domElement, dayTemplate, eventTemplate) {
 			this.days.push(day);
 		}
 	};
+
 	this.render = function() {
 		this.renderer.render();
 	};
+
 	this.clearContent = function() {
 		domElement.html('');
 	};
+
+	this.createEvent = function(form) {
+		console.log($(form).serialize());
+		return false;
+	};
+	
 	this.generateCalendarDays();
 };

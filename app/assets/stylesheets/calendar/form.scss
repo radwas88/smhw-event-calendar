@@ -1,0 +1,17 @@
+@import '_variables';
+
+#event-form {
+	fieldset {
+		border: 1px solid $color-gray;
+		padding-top: 1rem;
+		legend {
+			font-size: $font-size-l;
+		}
+	}
+	label {
+		display: block;
+	}
+	input {
+		margin-bottom: 1rem;
+	}
+}
