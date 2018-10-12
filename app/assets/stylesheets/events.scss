@@ -1,9 +1,6 @@
-// Place all the styles related to the events controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 @import '_variables';
 
-.calendar {
+#calendar {
 	width: 100%;
 	border: 1px solid $color-gray;
 
@@ -36,9 +33,16 @@
 		.event {
 			display: block;
 			margin: 10px;
-			background: #f1a822;
+			background: #f7a300;
+			border: 1px solid #ca9100;
+			color: #353400;
 			border-radius: $border-radius;
 			padding: 0.5em;
 		}
+	}
+	&:after {
+		content: '';
+		display: block;
+		clear: both;
 	}
 }
