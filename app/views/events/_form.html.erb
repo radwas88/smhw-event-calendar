@@ -1,4 +1,4 @@
-<form id="event-form" method="post" onsubmit="return createCalendarEvent()">
+<form id="event-form" method="post">
 	<fieldset>
 		<legend>Create event</legend>
 		<div>
@@ -18,11 +18,10 @@
 </form>
 
 <script type="text/javascript">
-	function createCalendarEvent() {
-		return false;
-	}
-
 	$(document).ready(function(){
-		$('.date-input').datepicker();
+		$('.date-input').datepicker({
+			format: 'dd/mm/yyyy',
+			autoHide: true
+		});
 	});
 </script>
