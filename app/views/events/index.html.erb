@@ -6,6 +6,7 @@
 <div id="calendar">
 	
 </div>
+<%= render 'form' %>
 
 <script id="calendar-day" type="text/x-handlebars-template">
 	<div class="day">
@@ -19,8 +20,9 @@
 </script>
 
 <script type="text/javascript">
+	var calendar = null;
 	$(document).ready(function(){
-		let calendar = new Calendar($('#calendar'), $('#calendar-day'), $('#event'));
+		calendar = new Calendar($('#calendar'), $('#calendar-day'), $('#event'));
 		calendar.render();
 	});
 </script>
