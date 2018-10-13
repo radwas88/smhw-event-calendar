@@ -9,6 +9,7 @@ function CalendarManager(calendar, createEventFormSelector) {
 		).done(function(data) {
 			$form.find('input').val('');
 		}).fail(function(error) {
+			alert(error.responseText);
 		});
 	};
 
