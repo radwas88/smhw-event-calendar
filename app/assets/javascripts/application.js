@@ -17,3 +17,5 @@
 
 //= require moment
 //= require handlebars.runtime
+
+const DATE_FORMAT = 'YYYY-MM-DD';

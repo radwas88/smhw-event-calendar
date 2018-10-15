@@ -21,5 +21,6 @@
 		calendar = new Calendar($('#calendar'), $('#calendar-day'), $('#event'));		
 		calendar.render();
 		calendarManager = new CalendarManager(calendar, '#event-form');
+		calendarManager.loadEvents();
 	});
 </script>

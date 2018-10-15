@@ -23,7 +23,7 @@ function Day(date, templateDomElement, eventTemplateElement) {
 		return this.renderer.render();
 	};
 	this.addEvent = function(title) {
-		let event = new Event(title, eventTemplateElement);
+		let event = new Event(title, $(eventTemplateElement));
 		this.events.push(event);
 	};
 };
