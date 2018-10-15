@@ -6,7 +6,7 @@ function CalendarRenderer(calendar, calendarDomObject) {
 };
 
 function Calendar(domElement, dayTemplate) {
-	this.startDate = moment();
+	this.startDate = moment().startOf('isoWeek');
 	this.endDate = moment(this.startDate).add(7, 'days');
 	this.days = [];
 	this.renderer = new CalendarRenderer(this, domElement);
