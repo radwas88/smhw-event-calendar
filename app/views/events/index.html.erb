@@ -15,8 +15,12 @@
 	<div class="event">event</div>
 </script>
 
+<button onclick="calendarManager.changeStartDate(-7, 'days');">Previous week</button>
+<button onclick="calendarManager.changeStartDate(7, 'days');">Next week</button>
+
 <script type="text/javascript">
 	var calendar = null;
+	var calendarManager = null;
 	$(document).ready(function(){
 		calendar = new Calendar($('#calendar'), $('script#calendar-day'));
 		calendar.render();
