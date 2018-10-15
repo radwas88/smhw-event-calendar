@@ -19,17 +19,19 @@ function CalendarManager(calendar, createEventFormSelector) {
 	};
 
 	this.createEvent = function(eventData) {
+		let self = this;
 		$.post(
 			'/events', 
 			eventData
 		).done(function(data) {
 			$form.find('input').val('');
+			self.loadEvents();
 		}).fail(function(error) {
 			alert(error.responseText);
 		});
 	};
 
-	this.loadEvents = function() {
+	this.loadEvents = function() {		
 		$.post('/events/list', {
 			start_date: calendar.startDate.format(DATE_FORMAT),
 			end_date: calendar.endDate.format(DATE_FORMAT)
