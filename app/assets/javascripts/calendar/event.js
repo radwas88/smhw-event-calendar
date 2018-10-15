@@ -1,5 +1,5 @@
-function Event(title, $template) {
+function Event(title, bgColor) {
 	this.render = function() {
-		return $template.html();
+		return '<div class="event" style="background: ' + bgColor + '">' + title + '</div>';
 	};
 };

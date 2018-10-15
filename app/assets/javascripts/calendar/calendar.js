@@ -5,8 +5,9 @@ function CalendarRenderer(calendar, calendarDomObject) {
 	}
 };
 
-function Calendar(domElement, dayTemplate, eventTemplate) {
+function Calendar(domElement, dayTemplate) {
 	this.startDate = moment();
+	this.endDate = moment(this.startDate).add(7, 'days');
 	this.days = [];
 	this.renderer = new CalendarRenderer(this, domElement);
 
@@ -14,11 +15,22 @@ function Calendar(domElement, dayTemplate, eventTemplate) {
 		let dateFromWhichStart = moment(this.startDate);
 		this.days = [];
 		for (let i=0; i<7; i++) {
-			let date = dateFromWhichStart.add(1, 'days');
-			let day = new Day(date, dayTemplate, eventTemplate);
-			day.addEvent('x');
+			let day = new Day(moment(dateFromWhichStart), dayTemplate);
 			this.days.push(day);
+			dateFromWhichStart.add(1, 'days');
 		}
+	};
+
+	this.clear = function() {
+		this.generateCalendarDays();
+	};
+
+	this.addEvent = function(date, title, bgColor) {
+		this.days.forEach((calendarDay) => {
+			if (calendarDay.date.isSame(date)) {
+				calendarDay.addEvent(title, bgColor);
+			}
+		});
 	};
 
 	this.render = function() {

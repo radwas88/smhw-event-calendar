@@ -12,7 +12,7 @@ function DayRenderer(day, templateDomElement) {
 	};
 };
 
-function Day(date, templateDomElement, eventTemplateElement) {
+function Day(date, templateDomElement) {
 	this.date = date;
 	this.dayName = this.date.format("dddd");
 	this.shortDate = this.date.format("Do MMM");
@@ -22,8 +22,8 @@ function Day(date, templateDomElement, eventTemplateElement) {
 	this.render = function() {		
 		return this.renderer.render();
 	};
-	this.addEvent = function(title) {
-		let event = new Event(title, eventTemplateElement);
+	this.addEvent = function(title, bgColor) {
+		let event = new Event(title, bgColor);
 		this.events.push(event);
 	};
 };
