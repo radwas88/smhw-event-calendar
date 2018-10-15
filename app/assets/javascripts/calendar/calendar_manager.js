@@ -18,6 +18,11 @@ function CalendarManager(calendar, createEventFormSelector) {
 		return events;
 	};
 
+	this.changeStartDate = function(diff, timeKind) {
+		calendar.startDate = moment(calendar.startDate).add(diff, timeKind);
+		this.loadEvents();
+	};
+
 	this.createEvent = function(eventData) {
 		let self = this;
 		$.post(
