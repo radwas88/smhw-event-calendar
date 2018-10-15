@@ -1,13 +1,17 @@
 function CalendarManager(calendar, createEventFormSelector) {
 	let $form = $(createEventFormSelector);
-	
+	function randBackgroundColor() {
+		return '#' + Math.floor(Math.random()*16777215).toString(16);
+	}
+
 	function splitEventToCalendarEvents(eventObject) {
 		let startDate = moment(calendar.startDate);
 		let events = [];
+		let backgroundColor = randBackgroundColor();
 		for (let i=0; i<7; i++) {
-			if (moment(startDate) >= moment(eventObject.start_date)
-				&& moment(startDate) <= moment(eventObject.end_date)) {
-				events.push({date: moment(startDate), title: eventObject.title});
+			if (moment(startDate).isSameOrAfter(moment(eventObject.start_date), 'day')
+				&& moment(startDate).isSameOrBefore(moment(eventObject.end_date), 'day')) {
+				events.push({date: moment(startDate), bgColor: backgroundColor, title: eventObject.title});
 			}
 			startDate.add(1, 'days');
 		}
@@ -33,8 +37,8 @@ function CalendarManager(calendar, createEventFormSelector) {
 			calendar.clear();
 			events.forEach((event) => {
 				let splittedEvents = splitEventToCalendarEvents(event);
-				splittedEvents.forEach((calEvent) => {
-					calendar.addEvent(calEvent.date, calEvent.title);
+				splittedEvents.forEach((calEvent) => {					
+					calendar.addEvent(calEvent.date, calEvent.title, calEvent.bgColor);
 				});
 			});
 			calendar.render();
